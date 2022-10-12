@@ -2,21 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\Builder;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Http\Client\RequestException;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Model
+class ApiUser extends Model
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = 'users';
+    protected $table = 'api_users';
 
     /**
      * The attributes that are mass assignable.
@@ -44,6 +39,7 @@ class User extends Model
      * @var array<string, string>
      */
     protected $casts = [
+
     ];
 
     public $timestamps = false;
